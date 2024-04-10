@@ -2,7 +2,7 @@
 import { Component, ElementRef, EventEmitter, Input, OnInit, Output, ViewChild } from '@angular/core';
 import { Toast } from 'bootstrap';
 import { fromEvent, take } from 'rxjs';
-import { ToastEventTypes } from '../models/toast_event_types';
+import { ToastEventTypes } from '@asushares/core';
 import { CommonModule } from '@angular/common';
 
 @Component({

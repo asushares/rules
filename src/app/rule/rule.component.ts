@@ -5,10 +5,8 @@ import { ActivatedRoute, RouterModule } from '@angular/router';
 import { DataService } from '../data.service';
 import { StatusService } from '../status.service';
 import { BaseComponent } from '../base.component';
-import { Rule } from '../models/rule';
+import { CodeSet, CodeSetCoding, Rule } from '@asushares/core';
 import { FormsModule } from '@angular/forms';
-import { CodeSet } from '../models/code_set';
-import { CodeSetCoding } from '../models/code_set_coding';
 import { ToastService } from '../toast.service';
 import { ToasterComponent } from '../toaster/toaster.component';
 

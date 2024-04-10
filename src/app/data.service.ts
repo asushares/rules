@@ -4,7 +4,7 @@ import { Injectable, OnInit } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { BehaviorSubject } from 'rxjs';
 import { StatusService } from './status.service';
-import { RulesFile } from './models/rules_file';
+import { RulesFile } from '@asushares/core';
 import { ToastService } from './toast.service';
 import { Router } from '@angular/router';
 import { SettingsService } from './settings/settings.service';

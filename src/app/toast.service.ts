@@ -1,8 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Observable, Subject } from 'rxjs';
-import { ToastEventTypes } from './models/toast_event_types';
-import { ToastEvent } from './models/toast_event';
-import { ToastComponent } from './toast/toast.component';
+import { ToastEvent, ToastEventTypes } from '@asushares/core';
 
 @Injectable({
   providedIn: 'root'

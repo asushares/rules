@@ -1,6 +1,6 @@
 
 import { ChangeDetectionStrategy, ChangeDetectorRef, Component, OnInit } from '@angular/core';
-import { ToastEvent } from '../models/toast_event';
+import { ToastEvent } from '@asushares/core';
 import { ToastService } from '../toast.service';
 import { CommonModule } from '@angular/common';
 import { ToastComponent } from '../toast/toast.component';

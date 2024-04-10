@@ -6,8 +6,7 @@ import { DataService } from '../data.service';
 import { ActivatedRoute, Router, RouterModule } from '@angular/router';
 import { StatusService } from '../status.service';
 import { BaseComponent } from '../base.component';
-import { RulesFile } from '../models/rules_file';
-import { Rule } from '../models/rule';
+import { Rule, RulesFile } from '@asushares/core';
 
 import * as uuid from 'uuid';
 import { CommonModule } from '@angular/common';

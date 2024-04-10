@@ -2,7 +2,7 @@
 
 import { Injectable } from '@angular/core';
 import { Permissions } from './models/permissions';
-import { RulesFile } from './models/rules_file';
+import { RulesFile } from '@asushares/core';
 
 @Injectable({
   providedIn: 'root'

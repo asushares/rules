@@ -4,9 +4,7 @@ import { Component, OnInit } from '@angular/core';
 import { DataService } from '../data.service';
 import { ActivatedRoute, Router, RouterModule } from '@angular/router';
 import { StatusService } from '../status.service';
-import { RulesFile } from '../models/rules_file';
-import { Rule } from '../models/rule';
-import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { Rule, RulesFile } from '@asushares/core';
 import { CommonModule } from '@angular/common';
 
 import * as uuid from 'uuid';
