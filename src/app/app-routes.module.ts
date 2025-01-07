@@ -1,10 +1,11 @@
 // Author: Preston Lee
 
-import { Routes } from '@angular/router';
+import { RouterModule, Routes } from '@angular/router';
 import { OpenComponent } from './open/open.component';
 import { EditorComponent } from './editor/editor.component';
 import { RuleComponent } from './rule/rule.component';
 import { SettingsComponent } from './settings/settings.component';
+import { NgModule } from '@angular/core';
 
 export const routes: Routes = [
     {
@@ -26,3 +27,10 @@ export const routes: Routes = [
         component: SettingsComponent
     }
 ];
+
+
+@NgModule({
+    imports: [RouterModule.forRoot(routes)],
+    exports: [RouterModule]
+})
+export class AppRoutingModule { }

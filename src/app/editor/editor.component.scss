@@ -1,4 +1,4 @@
-@import "../../stylesheets/common";
+@use "../../stylesheets/common";
 
 $sidebar_highlight: #444;
 $sidebar_light: #111;
@@ -139,7 +139,7 @@ $sidebar_light: #111;
     }
 
     #sidebar {
-        box-shadow: $drop_shadow;
+        box-shadow: common.$drop_shadow;
         background: url(/assets/images/textures/gun_metal.png) repeat;
         // background: #2171ba;
         // background: url(/assets/images/backgrounds/ricardo-gomez-angel-2mjl2uvz9ic-unsplash.jpg) no-repeat center center fixed;

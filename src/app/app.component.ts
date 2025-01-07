@@ -1,11 +1,9 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule, RouterOutlet } from '@angular/router';
-import { OpenComponent } from './open/open.component';
 import { DataService } from './data.service';
 import { StatusService } from './status.service';
-import { HttpClientModule } from '@angular/common/http';
-import { ToastComponent } from './toast/toast.component';
+import { HttpClient, provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 import { ToasterComponent } from './toaster/toaster.component';
 import { ToastService } from './toast.service';
 import { FormsModule } from '@angular/forms';
@@ -15,12 +13,9 @@ import { FormsModule } from '@angular/forms';
   standalone: true,
   imports: [CommonModule,
     RouterOutlet,
-    OpenComponent,
     ToasterComponent,
-    ToastComponent,
     FormsModule,
-    RouterModule,
-    HttpClientModule],
+    RouterModule ],
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
   providers: [ToastService, DataService, StatusService]
