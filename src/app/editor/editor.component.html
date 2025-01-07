@@ -15,7 +15,7 @@
                     </div>
                 </div>
                 <div *ngIf="!statusService.editing">
-                    <h1>{{rules_file.name}}
+                    <h1 class="m-3">{{rules_file.name}}
                     </h1>
                 </div>
 
@@ -33,51 +33,47 @@
                             </span>
                         </h4>
                         <!-- <fieldset class="form-group"> -->
-                        <ul class="list-unstyled" id="rules_list">
+                        <ul class="list-group m-2" id="rules_list">
                             <!-- <li *ngFor="let w of rules_file.rules" (click)="selectRule(w)"> -->
-                            <li *ngFor="let r of rules_file.rules" [routerLinkActive]="'active'">
-                                <div *ngIf="statusService.editing">
-                                    <div class="row">
-                                        <div class="col-sm-6">
-                                            <input class="form-control form-control-sm" type="text" required="true"
-                                                [class.selected]="r.id == selectedRuleId()" [(ngModel)]="r.id"
-                                                [routerLink]="['rules', r.id]" />
+                            <li class="list-group-item" role="button" *ngFor="let r of rules_file.rules"
+                                [routerLinkActive]="'active'" [routerLink]="['rules', r.id]">
+                                @if(statusService.editing) {
+                                <div class="row">
+                                    <div class="col-sm-6">
+                                        <input class="form-control form-control-sm" type="text" required="true"
+                                            [class.selected]="r.id == selectedRuleId()" [(ngModel)]="r.id" />
 
-                                        </div>
-                                        <div class="col-sm-6">
-                                            <div class="btn-group align-start">
-                                                <a class="btn btn-small btn-default" (click)="deleteRule(r)"><span
-                                                        class="bi bi-trash"></span></a>
-                                                <a class="btn btn-small btn-dark-outline"
-                                                    (click)="duplicateRule(r)"><span class="bi bi-files"></span></a>
-                                                <a class="btn btn-small btn-dark-outline"
-                                                    (click)="moveUp(r, rules_file.rules)"
-                                                    *ngIf="canMoveUp(r, rules_file.rules)"><span
-                                                        class="bi bi-chevron-up"></span></a>
-                                                <a class="btn btn-small btn-dark disabled"
-                                                    *ngIf="!canMoveUp(r, rules_file.rules)"><span
-                                                        class="bi bi-chevron-up"></span></a>
-                                                <a class="btn btn-small btn-dark-outline"
-                                                    (click)="moveDown(r, rules_file.rules)"
-                                                    *ngIf="canMoveDown(r, rules_file.rules)"><span
-                                                        class="bi bi-chevron-down"></span></a>
-                                                <a class="btn btn-small btn-dark disabled"
-                                                    *ngIf="!canMoveDown(r, rules_file.rules)"><span
-                                                        class="bi bi-chevron-down"></span></a>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        
+                                                                                <span class="m-1 p-2 badge rounded-pill text-bg-primary">
+                                                                                    {{totalCodesFor(r)}}
+                                                                                </span>
+                                        <div class="btn-group align-start">
+                                            <a class="btn btn-small btn-default" (click)="deleteRule(r)"><span
+                                                    class="bi bi-trash"></span></a>
+                                            <a class="btn btn-small btn-dark-outline" (click)="duplicateRule(r)"><span
+                                                    class="bi bi-files"></span></a>
+                                            <a class="btn btn-small " (click)="moveUp(r, rules_file.rules)"
+                                                *ngIf="canMoveUp(r, rules_file.rules)"><span
+                                                    class="bi bi-chevron-up"></span></a>
+                                            <a class="btn btn-small " (click)="moveDown(r, rules_file.rules)"
+                                                *ngIf="canMoveDown(r, rules_file.rules)"><span
+                                                    class="bi bi-chevron-down"></span></a>
 
-                                            </div>
                                         </div>
                                     </div>
                                 </div>
-                                <div *ngIf="!statusService.editing" class="readonly_rule">
-                                    <a role="button" [routerLink]="['/editor','rules', r.id]"
-                                        [routerLinkActive]="'active'">
-                                        {{r.id}}
-                                    </a>
-                                </div>
-                                <div class="ball ball_green">
-                                    <p [innerText]="r.codeSets.length"></p>
-                                </div>
+                                }
+                                @if(!statusService.editing){
+                                <!-- <button class="btn btn-md btn-outline-secondary" role="button" [routerLink]="['/editor','rules', r.id]" [routerLinkActive]="'active'"> -->
+                                {{r.id}}
+                                <!-- </button> -->
+
+                                <span class="m-1 p-2 badge rounded-pill text-bg-primary">
+                                    {{totalCodesFor(r)}}
+                                </span>
+                                }
                             </li>
                         </ul>
                     </li>
@@ -114,8 +110,8 @@
                     </div>
                     <br>
                     <br>
-                    <button *ngIf="statusService.permissions.edit && statusService.editing && dataService.savable()" id="save_button"
-                        class="btn btn-sm btn-dark" (click)="saveToServer()"><span
+                    <button *ngIf="statusService.permissions.edit && statusService.editing && dataService.savable()"
+                        id="save_button" class="btn btn-sm btn-dark" (click)="saveToServer()"><span
                             class="bi-cloud-upload"></span>&nbsp;Save to Server
                     </button>
                     <div *ngIf="statusService.permissions.edit">

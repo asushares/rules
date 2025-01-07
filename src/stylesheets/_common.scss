@@ -19,37 +19,35 @@ $drop_shadow: 0 20px 20px #000;
 
 
 
-.ball {
-    display: inline-block;
-    cursor: pointer;
-    width: 10px;
-    height: 10px;
-    position: absolute;
-    top: 8px;
-    right: 20px;
-    // : white;
-    // border: 1px solid #111;
-    p {
-        color: #fff;
-    }
-}
+// .ball {
+//     display: inline-block;
+//     cursor: pointer;
+//     width: 10px;
+//     height: 10px;
+//     position: absolute;
+//     top: 8px;
+//     right: 20px;
+//     p {
+//         color: #fff;
+//     }
+// }
 
-.ball_green {
-    background-color: rgba(0, 176, 20, .95);
-    border-radius: 5px;
-    box-shadow: 0 -2px 5px inset rgba(0, 0, 0, .5), 0 4px 4px black;
-}
+// .ball_green {
+//     background-color: rgba(0, 176, 20, .95);
+//     border-radius: 5px;
+//     box-shadow: 0 -2px 5px inset rgba(0, 0, 0, .5), 0 4px 4px black;
+// }
 
 
-.ball_yellow {
-    background-color: rgba(251, 217, 4, .95);
-    border-radius: 5px;
-    box-shadow: 0 -2px 5px inset rgba(0, 0, 0, .5), 0 4px 4px black;
-}
+// .ball_yellow {
+//     background-color: rgba(251, 217, 4, .95);
+//     border-radius: 5px;
+//     box-shadow: 0 -2px 5px inset rgba(0, 0, 0, .5), 0 4px 4px black;
+// }
 
 
-.ball_red {
-    background-color: rgba(255, 140, 50, .95);
-    border-radius: 5px;
-    box-shadow: 0 -2px 5px inset rgba(0, 0, 0, .5), 0 4px 4px black;
-}
+// .ball_red {
+//     background-color: rgba(255, 140, 50, .95);
+//     border-radius: 5px;
+//     box-shadow: 0 -2px 5px inset rgba(0, 0, 0, .5), 0 4px 4px black;
+// }

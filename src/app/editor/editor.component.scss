@@ -31,41 +31,33 @@ $sidebar_light: #111;
         // padding: 8px 10px;
     }
 
-    .readonly_rule {
-        padding: 4px 10px;
-    }
 
-    .ball {
-        display: inline-block;
-        cursor: pointer;
-        width: 30px;
-        height: 30px;
-        position: absolute;
-        top: 0px;
-        right: 20px;
-        // border: 1px solid #111;
-        text-align: center;
-        border-radius: 15px;
-        box-shadow: 0 -5px 15px inset rgba(0, 0, 0, .7), 0 4px 4px black;
-    }
+    // .ball {
+    //     display: inline-block;
+    //     cursor: pointer;
+    //     width: 30px;
+    //     height: 30px;
+    //     position: absolute;
+    //     top: 0px;
+    //     right: 20px;
+    //     text-align: center;
+    //     border-radius: 15px;
+    //     box-shadow: 0 -5px 15px inset rgba(0, 0, 0, .7), 0 4px 4px black;
+    // }
 
-    .ball_green {
-        background-color: rgba(0, 176, 20, .9);
-    }
+    // .ball_green {
+    //     background-color: rgba(0, 176, 20, .9);
+    // }
 
 
-    .ball_yellow {
-        background-color: rgba(251, 217, 4, .9);
-        // border-radius: 5px;
-        // box-shadow: 0 -2px 5px inset rgba(0, 0, 0, .5), 0 4px 4px black;
-    }
+    // .ball_yellow {
+    //     background-color: rgba(251, 217, 4, .9);
+    // }
 
 
-    .ball_red {
-        background-color: rgba(255, 140, 50, .9);
-        // border-radius: 5px;
-        // box-shadow: 0 -2px 5px inset rgba(0, 0, 0, .5), 0 4px 4px black;
-    }
+    // .ball_red {
+    //     background-color: rgba(255, 140, 50, .9);
+    // }
 
     p {
         font-family: "Poppins", sans-serif;
@@ -114,19 +106,19 @@ $sidebar_light: #111;
         perspective: 1500px;
     }
 
-    #sidebar.active {
-        margin-left: 0px;
-        transform: rotateY(0deg);
-    }
+    // #sidebar.active {
+    //     margin-left: 0px;
+    //     transform: rotateY(0deg);
+    // }
 
-    #sidebar.inactive.viewing {
-        margin-left: -250px;
-        transform: rotateY(100deg);
-    }
-    #sidebar.inactive.editing {
-        margin-left: -500px;
-        transform: rotateY(100deg);
-    }
+    // #sidebar.inactive.viewing {
+    //     margin-left: -250px;
+    //     transform: rotateY(100deg);
+    // }
+    // #sidebar.inactive.editing {
+    //     margin-left: -500px;
+    //     transform: rotateY(100deg);
+    // }
 
     #sidebar.editing {
             min-width: 500px;
@@ -134,8 +126,8 @@ $sidebar_light: #111;
     }
 
     #sidebar.viewing {
-        min-width: 250px;
-        max-width: 250px;
+        min-width: 350px;
+        max-width: 350px;
     }
 
     #sidebar {

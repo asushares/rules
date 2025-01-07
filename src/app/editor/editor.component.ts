@@ -24,17 +24,25 @@ import { ToastrService } from 'ngx-toastr';
   // providers: [toastrService]
 })
 export class EditorComponent extends BaseComponent {
-
+  
   public rules_file: RulesFile | null = null;
-
+  
   public sidebarActive: boolean = true;
   public download_locked: boolean = false;
-
+  
   constructor(protected dataService: DataService, protected settingsService: SettingsService, protected statusService: StatusService, protected toastrService: ToastrService, protected http: HttpClient, protected route: ActivatedRoute, protected router: Router) {
     super();
     // this.toastrService.showInfoToast('DEBUG', 'Loaded EditorComponent');
   }
-
+  
+  totalCodesFor(rule: Rule) {
+    let count = 0;
+    rule.codeSets.forEach(n => {
+      count += n.codes.length;
+    });
+    return count;
+  }
+  
   ruleForId(id: string): Rule | null {
     let r: Rule | null = null;
     this.rules_file?.rules.forEach(n => {
