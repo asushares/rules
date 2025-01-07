@@ -32,7 +32,8 @@
 						"styles": [
 							"node_modules/bootstrap-icons/font/bootstrap-icons.css",
 							"src/stylesheets/sandstone.min.css",
-							"src/stylesheets/styles.scss"
+							"src/stylesheets/styles.scss",
+							 "node_modules/ngx-toastr/toastr.css"
 						],
 						"scripts": [
 							"node_modules/jquery/dist/jquery.min.js",

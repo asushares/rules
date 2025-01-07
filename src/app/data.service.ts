@@ -5,10 +5,10 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { BehaviorSubject } from 'rxjs';
 import { StatusService } from './status.service';
 import { RulesFile } from '@asushares/core';
-import { ToastService } from './toast.service';
 import { Router } from '@angular/router';
 import { SettingsService } from './settings/settings.service';
 import { Buffer } from 'buffer';
+import { ToastrService } from 'ngx-toastr';
 
 @Injectable({
   providedIn: 'root'
@@ -21,7 +21,7 @@ export class DataService {
   public rules_file: BehaviorSubject<RulesFile | null> = new BehaviorSubject<RulesFile | null>(null);
 
 
-  constructor(protected settingsService: SettingsService, protected http: HttpClient, protected statusService: StatusService, protected toastService: ToastService, protected router: Router) {
+  constructor(protected settingsService: SettingsService, protected http: HttpClient, protected statusService: StatusService, protected toastrService: ToastrService, protected router: Router) {
     this.default_url = (window as any)['DEFAULT_RULES_FILE_URL'].toString();
     // if(this.default_url) {
     //   this.rules_file_url = this.default_url;
@@ -43,13 +43,13 @@ export class DataService {
         this.loading = false;
         this.statusService.updatePermissionsFor(rf);
         this.rules_file.next(rf);
-        this.toastService.showSuccessToast("File Loaded!", "Starting app...");
+        this.toastrService.success("Starting app...", "File Loaded!");
         this.statusService.editing = false; // Seems reasonable
         this.router.navigate(['editor']);
       }),
       error: (e => {
         this.loading = false;
-        this.toastService.showWarningToast("Couldn't load URL", "The remote rules file URL couldn't be loaded, sorry. Check the URL and your connectivity and try again.");
+        this.toastrService.warning("The remote rules file URL couldn't be loaded, sorry. Check the URL and your connectivity and try again.", "Couldn't load URL");
       })
     });
     // this.rules_file = this.http.get<RulesFile>(url);
@@ -78,9 +78,9 @@ export class DataService {
     let data = JSON.stringify(rf, null, "\t");
     return this.http.post(url, data, { headers: this.headers() }).subscribe({
       next: data => {
-        this.toastService.showSuccessToast('File Saved', 'Successfully updated the server. Changes should be effective immediately.');
+        this.toastrService.success('Successfully updated the server. Changes should be effective immediately.', 'File Saved');
       }, error: e => {
-        this.toastService.showErrorToast('Error Saving', 'File could not be saved to remote server. Try downloading it locally and posting it later?');
+        this.toastrService.error('File could not be saved to remote server. Try downloading it locally and posting it later?', 'Error Saving');
       }
     });
     // } else 

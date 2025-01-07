@@ -7,17 +7,16 @@ import { StatusService } from '../status.service';
 import { BaseComponent } from '../base.component';
 import { CodeSet, CodeSetCoding, Rule } from '@asushares/core';
 import { FormsModule } from '@angular/forms';
-import { ToastService } from '../toast.service';
-import { ToasterComponent } from '../toaster/toaster.component';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-rule',
   standalone: true,
   imports: [CommonModule, FormsModule, RouterModule],
   templateUrl: './rule.component.html',
-  styleUrl: './rule.component.scss', 
+  styleUrl: './rule.component.scss',
 })
-export class RuleComponent extends BaseComponent{
+export class RuleComponent extends BaseComponent {
 
 
   rule: Rule | null = null;
@@ -45,7 +44,7 @@ export class RuleComponent extends BaseComponent{
     return name;
   }
 
-  constructor(private route: ActivatedRoute, protected http: HttpClient, public dataService: DataService, public statusService: StatusService, public toastService: ToastService) {
+  constructor(private route: ActivatedRoute, protected http: HttpClient, public dataService: DataService, public statusService: StatusService, public toastrService: ToastrService) {
     super();
     console.log(RuleComponent.name + " initializing.");
     this.resetBulkImport();
@@ -54,7 +53,7 @@ export class RuleComponent extends BaseComponent{
       this.loadRuleFor(w_id);
     });
 
-    // this.toastService.showInfoToast('DEBUG', 'Loaded RuleComponent');
+    // this.toastrService.showInfoToast('DEBUG', 'Loaded RuleComponent');
   }
 
 
@@ -136,7 +135,7 @@ export class RuleComponent extends BaseComponent{
         this.selectedCodeSet?.codes.push(c);
       }
     });
-    this.toastService.showSuccessToast('Import Completed', `${codes.length} codes have been added.`);
+    this.toastrService.success(`${codes.length} codes have been added.`, 'Import Completed');
     this.resetBulkImport();
   }
 
@@ -167,12 +166,12 @@ export class RuleComponent extends BaseComponent{
     });
     if (errorLines.length > 0) {
       console.log(`Errors found in CSV text at lines ${errorLines.join(', ')}. Cancelling.`);
-      this.toastService.showWarningToast('CSV Errors', `Import cancelled due to CSV errors at lines ${errorLines.join(', ')}. Please fix them and try again.`);
+      this.toastrService.warning(`Import cancelled due to CSV errors at lines ${errorLines.join(', ')}. Please fix them and try again.`, 'CSV Errors');
     } else {
       codings.forEach(c => {
         this.selectedCodeSet?.codes.push(c);
       })
-      this.toastService.showSuccessToast('Import Completed', `${lines.length} codes have been added.`);
+      this.toastrService.success(`${lines.length} codes have been added.`, 'Import Completed');
       this.resetCsvImport();
     }
   }

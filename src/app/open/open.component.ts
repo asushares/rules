@@ -9,7 +9,7 @@ import { CommonModule } from '@angular/common';
 
 import * as uuid from 'uuid';
 import { FormsModule } from '@angular/forms';
-import { ToastService } from '../toast.service';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-open',
@@ -31,11 +31,11 @@ export class OpenComponent implements OnInit {
     private router: Router,
     public dataService: DataService,
     public statusService: StatusService,
-    public toastService: ToastService
+    public toastrService: ToastrService
   ) {
     console.log("OpenComponent has been initialized.");
     this.reset();
-    // this.toastService.showInfoToast('DEBUG', 'Loaded OpenComponent');
+    // this.toastrService.showInfoToast('DEBUG', 'Loaded OpenComponent');
 
     // To always start with a new document.
     // this.createFromTemplate();

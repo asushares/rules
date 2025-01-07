@@ -1,19 +1,5 @@
-import { CommonModule } from "@angular/common";
-import { Component } from "@angular/core";
-import { FormsModule } from "@angular/forms";
-import { RouterModule } from "@angular/router";
-import { ToastService } from "./toast.service";
-import { ToastComponent } from "./toast/toast.component";
-import { ToasterComponent } from "./toaster/toaster.component";
-
 // Author: Preston Lee
-// @Component({
-//     selector: 'base',
-//     standalone: true,
-//     imports: [CommonModule, ToasterComponent, ToastComponent, RouterModule, FormsModule],
-//     template: 'ABSTRACT',
-//     providers: [ToastService]
-//   })
+
 export abstract class BaseComponent {
 
     canMoveUp<T>(item: T, within: Array<T>): boolean {

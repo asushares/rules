@@ -10,12 +10,10 @@ import { Rule, RulesFile } from '@asushares/core';
 
 import * as uuid from 'uuid';
 import { CommonModule } from '@angular/common';
-import { ToasterComponent } from '../toaster/toaster.component';
-import { ToastComponent } from '../toast/toast.component';
-import { ToastService } from '../toast.service';
 import { FormsModule } from '@angular/forms';
 import { SettingsService } from '../settings/settings.service';
-// import { ToastService } from '../toast.service';
+import { ToastrService } from 'ngx-toastr';
+// import { toastrService } from '../toast.service';
 
 @Component({
   selector: 'app-editor',
@@ -23,7 +21,7 @@ import { SettingsService } from '../settings/settings.service';
   imports: [CommonModule, RouterModule, FormsModule],
   templateUrl: './editor.component.html',
   styleUrl: './editor.component.scss',
-  // providers: [ToastService]
+  // providers: [toastrService]
 })
 export class EditorComponent extends BaseComponent {
 
@@ -32,9 +30,9 @@ export class EditorComponent extends BaseComponent {
   public sidebarActive: boolean = true;
   public download_locked: boolean = false;
 
-  constructor(protected dataService: DataService, protected settingsService: SettingsService, protected statusService: StatusService, protected toastService: ToastService, protected http: HttpClient, protected route: ActivatedRoute, protected router: Router) {
+  constructor(protected dataService: DataService, protected settingsService: SettingsService, protected statusService: StatusService, protected toastrService: ToastrService, protected http: HttpClient, protected route: ActivatedRoute, protected router: Router) {
     super();
-    // this.toastService.showInfoToast('DEBUG', 'Loaded EditorComponent');
+    // this.toastrService.showInfoToast('DEBUG', 'Loaded EditorComponent');
   }
 
   ruleForId(id: string): Rule | null {
@@ -54,7 +52,7 @@ export class EditorComponent extends BaseComponent {
         if (rf) {
           // When not null, the service has finished loading data
           this.rules_file = rf;
-          // this.toastService.showSuccessToast("Document Loaded", "Your rules file has been loaded.")
+          // this.toastrService.success("Your rules file has been loaded.", "Document Loaded")
           let rule_id = this.route.snapshot.paramMap.get('id');
           if (!rule_id && this.rules_file.rules.length > 0) {
 
@@ -99,7 +97,7 @@ export class EditorComponent extends BaseComponent {
     a.href = url;
     a.download = 'rules.json';
     a.click();
-    this.toastService.showSuccessToast("Document Downloaded", "File saved to your browser downloads folder.");
+    this.toastrService.success("File saved to your browser downloads folder.", "Document Downloaded");
   }
 
   toggleEditMode() {
