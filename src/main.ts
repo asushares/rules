@@ -5,7 +5,7 @@ import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http'
 import { importProvidersFrom } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app/app-routes.module';
-import { provideToastr, ToastrModule } from 'ngx-toastr';
+import { provideToastr } from 'ngx-toastr';
 
 bootstrapApplication(AppComponent, {
   providers: [
