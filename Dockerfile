@@ -9,8 +9,7 @@ RUN npm i
 
 # Build
 COPY . .
-RUN npm run ng build --production
-#  -- --prod
+RUN npm run ng build --omit=dev
 
 FROM nginx:stable-alpine
 
