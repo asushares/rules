@@ -13,7 +13,6 @@ import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-open',
-  standalone: true,
   imports: [CommonModule, FormsModule, RouterModule],
   templateUrl: './open.component.html',
   styleUrl: './open.component.scss'

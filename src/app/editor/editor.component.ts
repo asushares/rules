@@ -17,11 +17,9 @@ import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-editor',
-  standalone: true,
   imports: [CommonModule, RouterModule, FormsModule],
   templateUrl: './editor.component.html',
-  styleUrl: './editor.component.scss',
-  // providers: [toastrService]
+  styleUrl: './editor.component.scss'
 })
 export class EditorComponent extends BaseComponent {
   

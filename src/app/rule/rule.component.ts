@@ -11,7 +11,6 @@ import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-rule',
-  standalone: true,
   imports: [CommonModule, FormsModule, RouterModule],
   templateUrl: './rule.component.html',
   styleUrl: './rule.component.scss',
